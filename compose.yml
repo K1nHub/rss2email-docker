@@ -1,0 +1,21 @@
+services:
+  rss2email:
+    build: .
+    container_name: rss2email
+    volumes:
+      - rss2email_database:/root/.local/share
+      - rss2email_config:/root/.config
+    environment:
+      - TZ=Europe/Kiev
+      - FEED=
+      - SMTP_HOST=
+      - SMTP_PORT=
+      - SMTP_USER=
+      - SMTP_PASSWORD=
+      - SMTP_TO=
+      - USE_TLS=False
+      - REFRESH_TIME=3600 # in seconds
+
+volumes:
+  rss2email_database:
+  rss2email_config:
